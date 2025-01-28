@@ -11,7 +11,7 @@ const prix = produits.map(produit => `<td>${produit.prix}</td>`)
 const tName = document.getElementById("t_name_c")
 
 for (let i =0; i < nom.length; i++) {
-    tName.innerHTML += `<tr>` + id[i] + nom[i] + prix[i] + `<th><button class="deleteBtn">f</button></th> </tr>`;
+    tName.innerHTML += `<tr>` + id[i] + nom[i] + prix[i] + `<th><button class="deleteBtn" id="btn${i}">f</button></th> </tr>`;
 }
 
 const search = document.getElementById('search')
@@ -32,8 +32,11 @@ totalTxt.textContent = total
 const deleteBtn = document.querySelectorAll('.deleteBtn').forEach(function (element){
     element.addEventListener('click', deleteLine)
 })
+
 function deleteLine(element){
-    console.log(produits.id)
+    console.log(element.target.id)
+    let id = element.target.id
+    produits.splice(id, 1);
 }
 const resetBtn = document.getElementById('reset').addEventListener('click', reset)
 function reset(){
