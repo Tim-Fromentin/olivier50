@@ -23,7 +23,11 @@ function fSearch(element){
         return el.toLowerCase().indexOf(searchResult.toLowerCase()) !== -1
     })
 }
+const total = produits.reduce((total, item) => total + item.prix, 0)
+console.log(total)
 
+const totalTxt = document.getElementById('totalTxt')
+totalTxt.textContent = total
 function deleteLine(){
 
 }
